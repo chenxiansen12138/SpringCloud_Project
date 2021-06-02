@@ -1,0 +1,28 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+spring:
+  datasource:
+    druid:
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.96.130:3306/springcloud?useUnicode=true&characterEncoding=utf-8&useeSSL=false
+      username: root
+      password: jiaobaba
+feign:
+  client:
+    config:
+      default:
+        #简历连接所用的时间，适用于网络状况正常的情况下，两端连接所需要的时间
+        ConnectTimeOut: 5000
+        #指建立连接后从服务端读取到可用资源所用的时间
+        ReadTimeOut: 10000
+  hystrix:
+    enabled: true
+
